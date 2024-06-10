@@ -3,6 +3,8 @@ import Header from './components/Header';
 import ToDoList from './components/ToDoList';
 import AddToDo from './components/AddToDo';
 
+import './App.css';
+
 const App = () => {
   const [todos, setTodos] = useState([]);
 
@@ -15,13 +17,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-
     if (todos.length > 0) {
       localStorage.setItem('todos', JSON.stringify(todos));
-      console.log('Saved todos to localStorage:', todos);
     }
-    // localStorage.setItem('todos', JSON.stringify(todos));
-    // const storedTodos = JSON.parse(localStorage.getItem('todos'));
   }, [todos]);
 
   const addTodo = (todo) => {
@@ -39,12 +37,14 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Header />
+    <div className="app-container">
+      <Header/>
       <AddToDo addTodo={addTodo} />
       <ToDoList todos={todos} deleteTodo={deleteTodo} toggleComplete={toggleComplete} />
     </div>
+
   );
 };
 
-export default App;
+
+export default App ;

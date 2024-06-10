@@ -23,7 +23,9 @@ a:hover {
 }
 
 body {
-  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  padding: 10;
+  margin: 10;
   display: flex;
   place-items: center;
   min-width: 320px;
