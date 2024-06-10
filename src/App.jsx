@@ -15,8 +15,13 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-    const storedTodos = JSON.parse(localStorage.getItem('todos'));
+
+    if (todos.length > 0) {
+      localStorage.setItem('todos', JSON.stringify(todos));
+      console.log('Saved todos to localStorage:', todos);
+    }
+    // localStorage.setItem('todos', JSON.stringify(todos));
+    // const storedTodos = JSON.parse(localStorage.getItem('todos'));
   }, [todos]);
 
   const addTodo = (todo) => {
